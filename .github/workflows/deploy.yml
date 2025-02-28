@@ -1,41 +1,24 @@
-
 name: Deploy to VMware VM
 
 on:
-
   push:
-
     branches:
-
       - main
 
 jobs:
-
   deploy:
-
     runs-on: ubuntu-latest
 
- 
-
     steps:
-
       - name: Checkout Code
-
         uses: actions/checkout@v3
 
- 
-
       - name: Deploy via SSH
-
         uses: appleboy/ssh-action@v0.1.7
-
         with:
-
           host: 192.168.145.129
-
           username: nishan
-
-          key: -----BEGIN OPENSSH PRIVATE KEY-----
+          key: $ -----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABAuT33B74
 uiINXENqA6Wm8QAAAAGAAAAAEAAAAzAAAAC3NzaC1lZDI1NTE5AAAAIBhAF6RbbPQrlSl6
 jd+/BxKnYtw5PzSIlB9Hy/rJtxK9AAAAoP/9lYsiS0yFLvNDs2FWxgs0GPPNxX8d51V7F6
@@ -45,17 +28,10 @@ SgqKtal7AVH7dBIZNMLhrVljxAR97ol/VBIYk=
 -----END OPENSSH PRIVATE KEY-----
 
           script: |
-
             cd /var/www/html/devops-test  # Change to your project path
-
             git pull origin main
-
             composer install --no-dev --optimize-autoloader
-
             php artisan migrate --force
-
             php artisan cache:clear
-
             php artisan config:clear
-
             systemctl restart apache2
