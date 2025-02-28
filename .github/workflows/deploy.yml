@@ -35,7 +35,14 @@ jobs:
 
           username: nishan
 
-          key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBhAF6RbbPQrlSl6jd+/BxKnYtw5PzSIlB9Hy/rJtxK9 nissandhakal11@gmail.com
+          key: -----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABAuT33B74
+uiINXENqA6Wm8QAAAAGAAAAAEAAAAzAAAAC3NzaC1lZDI1NTE5AAAAIBhAF6RbbPQrlSl6
+jd+/BxKnYtw5PzSIlB9Hy/rJtxK9AAAAoP/9lYsiS0yFLvNDs2FWxgs0GPPNxX8d51V7F6
+9Fe9J2v3ShifLNz6IBkpHn5jZsp5qzP6xlNIk5JukTLLeYAvU+tkhjIl53MQ1/IqlRyiX1
+a0Bf3/kLHd89vlTU+L0oRNo4bsiRfzQbubkUdyzKojve/mKzi0z0GxmCBR/JJn9yxkCAEQ
+SgqKtal7AVH7dBIZNMLhrVljxAR97ol/VBIYk=
+-----END OPENSSH PRIVATE KEY-----
 
           script: |
 
