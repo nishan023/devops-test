@@ -1,0 +1,44 @@
+name: Deploy to VMware VM
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+
+        uses: actions/checkout@v3
+
+      - name: Deploy via SSH
+
+        uses: appleboy/ssh-action@v0.1.7
+
+        with:
+          host: ${{ secrets.VMWARE_HOST }}
+
+          username: ${{ secrets.VMWARE_USER }}
+
+          key: ${{ secrets.VMWARE_SSH_KEY }}
+
+          //ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBhAF6RbbPQrlSl6jd+/BxKnYtw5PzSIlB9Hy/rJtxK9 nissandhakal11@gmail.com
+
+          script: |
+
+            cd /var/www/html/your_project  # Change to your project path
+
+            git pull origin main
+
+            composer install --no-dev --optimize-autoloader
+
+            php artisan migrate --force
+
+            php artisan cache:clear
+
+            php artisan config:clear
+
+            systemctl restart apache2
