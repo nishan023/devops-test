@@ -18,7 +18,7 @@ jobs:
         with:
           host: 192.168.145.129
           username: nishan
-          key: ${{ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBhAF6RbbPQrlSl6jd+/BxKnYtw5PzSIlB9Hy/rJtxK9 nissandhakal11@gmail.com }} # Add your private SSH key in GitHub 
+          key:  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBhAF6RbbPQrlSl6jd+/BxKnYtw5PzSIlB9Hy/rJtxK9 nissandhakal11@gmail.com  # Add your private SSH key in GitHub 
 
           script: |
             echo "Starting deployment on VMware VM..."
