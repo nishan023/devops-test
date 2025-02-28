@@ -18,7 +18,7 @@ jobs:
         with:
           host: 192.168.145.129
           username: nishan
-          key: $ -----BEGIN OPENSSH PRIVATE KEY-----
+          key: -----BEGIN OPENSSH PRIVATE KEY-----
 b3BlbnNzaC1rZXktdjEAAAAACmFlczI1Ni1jdHIAAAAGYmNyeXB0AAAAGAAAABAuT33B74
 uiINXENqA6Wm8QAAAAGAAAAAEAAAAzAAAAC3NzaC1lZDI1NTE5AAAAIBhAF6RbbPQrlSl6
 jd+/BxKnYtw5PzSIlB9Hy/rJtxK9AAAAoP/9lYsiS0yFLvNDs2FWxgs0GPPNxX8d51V7F6
