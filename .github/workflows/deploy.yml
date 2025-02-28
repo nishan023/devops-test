@@ -1,44 +1,54 @@
+
 name: Deploy to VMware VM
 
 on:
+
   push:
+
     branches:
-      - main # Runs on push to main branch
+
+      - main
 
 jobs:
+
   deploy:
+
     runs-on: ubuntu-latest
 
+ 
+
     steps:
+
       - name: Checkout Code
+
         uses: actions/checkout@v3
 
+ 
+
       - name: Deploy via SSH
+
         uses: appleboy/ssh-action@v0.1.7
+
         with:
+
           host: 192.168.145.129
+
           username: nishan
-          key:  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBhAF6RbbPQrlSl6jd+/BxKnYtw5PzSIlB9Hy/rJtxK9 nissandhakal11@gmail.com  # Add your private SSH key in GitHub 
+
+          key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBhAF6RbbPQrlSl6jd+/BxKnYtw5PzSIlB9Hy/rJtxK9 nissandhakal11@gmail.com
 
           script: |
-            echo "Starting deployment on VMware VM..."
 
-            cd /var/www/html/devops-test # Change this to your actual project path
+            cd /var/www/html/devops-test  # Change to your project path
 
-            echo "Pulling latest changes from GitHub..."
             git pull origin main
 
-            echo "Installing dependencies..."
             composer install --no-dev --optimize-autoloader
 
-            echo "Running database migrations..."
             php artisan migrate --force
 
-            echo "Clearing cache and configurations..."
             php artisan cache:clear
+
             php artisan config:clear
 
-            echo "Restarting Apache server..."
-            sudo systemctl restart apache2
-
-            echo "Deployment completed successfully!"
+            systemctl restart apache2
